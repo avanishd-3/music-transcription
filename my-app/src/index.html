@@ -5,15 +5,66 @@
     <title>AlphaTab Tutorial</title>
     <script src="https://cdn.jsdelivr.net/npm/@coderline/alphatab@latest/dist/alphaTab.js"></script>
     <style type="text/css">
-      /* Our Styles will go here */
+      .at-wrap {
+        width: 80vw;
+        height: 80vh;
+        margin: 0 auto;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+      }
+      .at-content {
+        position: relative;
+        overflow: hidden;
+        flex: 1 1 auto;
+      }
+      .at-sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        max-width: 70px;
+        width: auto;
+        display: flex;
+        align-content: stretch;
+        z-index: 1001;
+        overflow: hidden;
+        border-right: 1px solid rgba(0, 0, 0, 0.12);
+        background: #f7f7f7;
+      }
+      .at-viewport {
+        overflow-y: auto;
+        position: absolute;
+        top: 0;
+        left: 70px;
+        right: 0;
+        bottom: 0;
+        padding-right: 20px;
+      }
+      .at-footer {
+        flex: 0 0 auto;
+        background: #436d9d;
+        color: #fff;
+      }
     </style>
   </head>
   <body>
     <div class="at-wrap">
-      <!-- Our whole component will go into this wrapper -->
+      <div class="at-content">
+        <div class="at-sidebar">
+          Track selector will go here
+        </div>
+        <div class="at-viewport">
+            <!-- Viewport will scroll, at-main will contain music sheet -->
+            <div class="at-main"></div>
+        </div>
+      </div>
+      <div class="at-controls">
+        Player controls will go here
+      </div>
     </div>
-    <script type="text/javascript">
-      // Our JavaScript code will go here
-    </script>
+    <script type="text/javascript"></script>
   </body>
 </html>
