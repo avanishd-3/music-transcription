@@ -65,6 +65,16 @@
         Player controls will go here
       </div>
     </div>
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        // load elements
+        const wrapper = document.querySelector(".at-wrap");
+        const main = wrapper.querySelector(".at-main");
+    
+        // initialize alphatab
+        const settings = {
+          file: "https://www.alphatab.net/files/canon.gp",
+        };
+        const api = new alphaTab.AlphaTabApi(main, settings);
+    </script>
   </body>
 </html>
