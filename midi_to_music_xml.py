@@ -6,7 +6,7 @@ def midi_to_music_obj(midi_data) -> muspy.Music:
 
 
 def music_obj_to_music_xml_file(music_obj: muspy.Music):
-    muspy.write_musicxml('music.xml', music_obj)
+    muspy.write_musicxml('src/templates/music.xml', music_obj)
 
 
 def midi_to_music_xml(midi_data):
