@@ -7,7 +7,4 @@ def mp3_to_midi(mp3_file: str):
 
     model_output, midi_data, note_events = predict(mp3_file)
 
-    print(note_events)
-
-
-mp3_to_midi('audio.mp3')
+    return midi_data
