@@ -48,17 +48,48 @@
         background: #436d9d;
         color: #fff;
       }
+
+      .at-overlay {
+        /** Fill Parent */
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1002;
+
+        /* Blurry dark shade */
+        backdrop-filter: blur(3px);
+        background: rgba(0, 0, 0, 0.5);
+
+        /** center content */
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      .at-overlay-content {
+        /* white box with drop-shadow */
+        margin-top: 20px;
+        background: #fff;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+        padding: 10px;
+      }
     </style>
   </head>
   <body>
     <div class="at-wrap">
+      <div class="at-overlay">
+        <div class="at-overlay-content">
+          Music sheet is loading
+        </div>
+      </div>
       <div class="at-content">
         <div class="at-sidebar">
           Track selector will go here
         </div>
         <div class="at-viewport">
-            <!-- Viewport will scroll, at-main will contain music sheet -->
-            <div class="at-main"></div>
+          <div class="at-main"></div>
         </div>
       </div>
       <div class="at-controls">
@@ -66,15 +97,24 @@
       </div>
     </div>
     <script type="text/javascript">
-        // load elements
-        const wrapper = document.querySelector(".at-wrap");
-        const main = wrapper.querySelector(".at-main");
-    
-        // initialize alphatab
-        const settings = {
-          file: "https://www.alphatab.net/files/canon.gp",
-        };
-        const api = new alphaTab.AlphaTabApi(main, settings);
+      // load elements
+      const wrapper = document.querySelector(".at-wrap");
+      const main = wrapper.querySelector(".at-main");
+
+      // initialize alphatab
+      const settings = {
+        file: "https://www.alphatab.net/files/canon.gp",
+      };
+      const api = new alphaTab.AlphaTabApi(main, settings);
+
+      // overlay logic
+      const overlay = wrapper.querySelector(".at-overlay");
+      api.renderStarted.on(() => {
+        overlay.style.display = "flex";
+      });
+      api.renderFinished.on(() => {
+        overlay.style.display = "none";
+      });
     </script>
   </body>
 </html>
