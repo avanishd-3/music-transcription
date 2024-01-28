@@ -12,4 +12,8 @@ def main(url: str):
 
     midi = mp3_to_midi.mp3_to_midi(mp3_file='audio.mp3')
 
-    midi_to_music_xml.midi_to_music_xml(midi)
+    music_obj = midi_to_music_xml.midi_to_music_obj(midi)
+
+    midi_to_music_xml.music_obj_to_music_xml_file(music_obj)
+
+
