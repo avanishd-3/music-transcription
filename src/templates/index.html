@@ -330,23 +330,14 @@
 
       // initialize alphatab
       const settings = {
-        file: "https://www.alphatab.net/files/canon.gp",
         player: {
+          file: 'music.xml',
           enablePlayer: true,
           soundFont: "https://cdn.jsdelivr.net/npm/@coderline/alphatab@latest/dist/soundfont/sonivox.sf2",
           scrollElement: wrapper.querySelector('.at-viewport')
         },
       };
       const api = new alphaTab.AlphaTabApi(main, settings);
-
-      // overlay logic
-      const overlay = wrapper.querySelector(".at-overlay");
-      api.renderStarted.on(() => {
-        overlay.style.display = "flex";
-      });
-      api.renderFinished.on(() => {
-        overlay.style.display = "none";
-      });
 
       // track selector
       function createTrackItem(track) {

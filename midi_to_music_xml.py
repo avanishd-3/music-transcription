@@ -1,4 +1,6 @@
 import muspy
+from pathlib import Path
+import os
 
 
 def midi_to_music_obj(midi_data) -> muspy.Music:
@@ -6,7 +8,8 @@ def midi_to_music_obj(midi_data) -> muspy.Music:
 
 
 def music_obj_to_music_xml_file(music_obj: muspy.Music):
-    muspy.write_musicxml('src/templates/music.xml', music_obj)
+    path_to_download_folder = Path(os.path.join(Path.home(), "Downloads"))
+    muspy.write_musicxml(path_to_download_folder / 'music.xml', music_obj)
 
 
 def midi_to_music_xml(midi_data):

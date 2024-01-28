@@ -1,5 +1,5 @@
 import music_transcription
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 
 app = Flask(__name__, template_folder='src/templates')
 
@@ -9,12 +9,12 @@ def hello():
     return render_template('firstpage.html')
 
 
-@app.route('/process', methods=['POST'])
+@app.route('/process', methods=['POST', 'GET'])
 def process():
     data = request.form.get('url')
     result = music_transcription.main(data)
-    # return jsonify(result='music.xml')
-    return render_template('index.html')
+
+    return render_template('sheet_music_display.html')
 
 
 if __name__ == '__main__':

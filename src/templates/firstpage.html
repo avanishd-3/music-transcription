@@ -7,11 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Enter URL  
-        text-align: center;
+    <h1>Enter URL:
     </h1>
-    <form action="index.html">
-        <label for="fname">url: </label>
+    <form action="{{ url_for('process') }}" method="post">
+        <label for="url">url:</label>
         <input type="text" id="url" name="url"><br><br>
         <input type="submit" value="Submit">
       </form>

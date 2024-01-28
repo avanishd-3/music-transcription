@@ -1,0 +1,46 @@
+<html lang="en">
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<head>
+	<title> Music For Dummies</title>
+</head>
+<body>
+
+<script src="../static/opensheetmusicdisplay.min.js"></script> <!-- you need to provide the .js file, see README.md -->
+<div id="osmdCanvas" style="width: 100%"/>
+
+<input type="file" id="fileInput" name="file" formenctype="application/zip"/>
+
+<script>
+  var osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay("osmdCanvas");
+  //osmd.TransposeCalculator = new opensheetmusicdisplay.TransposeCalculator(); // needs OSMD 1.0.0+, better 1.3.0+
+  function handleFileSelect(evt) {
+    var file = evt.target.files[0];
+
+    if (!file.name.match('.*\.xml') && !file.name.match('.*\.musicxml') && !file.name.match('.*\.mxl')) {
+      alert('You selected a non-xml file. Please select only music xml files.');
+      return;
+    }
+
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      osmd.load(e.target.result).then(
+        function() {
+          //console.log("e.target.result: " + e.target.result);
+          // osmd.sheet.Transpose = 1;
+          osmd.render();
+        }
+      );
+    };
+    if (file.name.match('.*\.mxl')) {
+      // have to read as binary, otherwise JSZip will throw ("corrupted zip: missing 37 bytes" or similar)
+      reader.readAsBinaryString(file);
+    } else {
+      reader.readAsText(file);
+    }
+  }
+
+  document.getElementById("fileInput").addEventListener("change", handleFileSelect, false);
+</script>
+
+</body>
+</html>
