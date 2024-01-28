@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>AlphaTab Tutorial</title>
+    <title>MusicForDummies</title>
     <script src="https://cdn.jsdelivr.net/npm/@coderline/alphatab@latest/dist/alphaTab.js"></script>
     <script src="https://kit.fontawesome.com/b43f0e512e.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style type="text/css">
       body {
         font-family: Arial, Helvetica, sans-serif;
@@ -512,6 +513,14 @@
         songPosition.innerText =
           formatDuration(e.currentTime) + " / " + formatDuration(e.endTime);
       });
+      window.onload = function() {
+        var span = doccument.createElement('span');
+        span.className = 'fas';
+        span.style.display = 'none';
+        document.body.insertBefore(span, document.body.firstChild);
+        alert(window.getComputedStyle(span, null).getPropertyValue('font-family'));
+        document.body.removeChild(span);
+      }
     </script>
   </body>
 </html>
