@@ -17,7 +17,8 @@ Finally, we use Flask to connect our frontend and backend.
 There are dozens of file formats for music and most of them are terrible, except for certain proprietary ones (looking at you, MuseScore -> .mscz and Guitar Pro -> .gp) that you basically have to pay to access their software with.
 
 Even the format we ended up using, MusicXML, is pretty bad (it's the best of the worst) and MuseScore (a website that hosts millions of sheet music files, most of which you have to pay for) itself recommends editing a MusicXML file after importing it into their suite. Also, there are dozens of subcategories of MusicXML files, so our original plan of using AlphaTab to embed sheet music in browser with playing, metronome, looping, and printing did not work, because pretty much only Open Sheet Music Display works with MusicXML files (there is a service called SoundSlice that can also do this, but that is paid). Also also, Open Sheet Music Display does have a playing option but only for their sponsors (sadly).
-Accomplishments that we're proud of
+
+# Accomplishments that we're proud of
 
 Learning the many, many ways music can be represented digitally and navigating the lack of any good, free standards for digital music.
 # What we learned
